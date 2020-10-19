@@ -89,7 +89,9 @@ class FgtPHP
         $request['uri'] = "/api/v2/monitor/system/config/backup";
         $request['parameter'] = array( "scope" => $scope);
 
-        return $this->doRequest($request);
+        $data = $this->doRequest($request);
+
+        return $data;
 
     }
 
@@ -237,14 +239,17 @@ class FgtPHP
         $headers[] = 'Cache-Control: no-cache';
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 
 
         $server_output = curl_exec ($ch);
 
+        curl_close ($ch);
+
         return  $server_output;
 
-        curl_close ($ch);
+
     }
 
 }
