@@ -239,6 +239,7 @@ class FgtPHP
         $headers[] = 'Cache-Control: no-cache';
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        // Der dafür da damit nicht 1 zurückgegeben wird.
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 
