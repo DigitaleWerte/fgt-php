@@ -21,6 +21,8 @@ class FgtPHP
     private $devAddress;
 
     private $devPort = 443;
+
+    private $devicename = "";
     /**
      * FgtPHP constructor.
      * @param string $address Adress of the device you want to connecto to
@@ -113,6 +115,10 @@ class FgtPHP
 
     }
 
+    function getDeviceName() {
+
+    }
+
     function getSystemFirmware() {
 
         $request['method'] = 'GET';
@@ -147,7 +153,7 @@ class FgtPHP
             "format_partition":false,
             "file_content":"'.$b64file.'"
         }';
-        echo $request['postdata'] . "\n";
+
         return $this->doRequest($request);
 
     }
@@ -177,7 +183,7 @@ class FgtPHP
 
         $curlopturl = $this->reqProtocol . "://" . $this->devAddress . ":" . $this->devPort . $reqParam['uri'] . "?" . $getParams;
 
-        echo $curlopturl . "<br>";
+
 
         curl_setopt($ch, CURLOPT_URL, $curlopturl);
 
@@ -235,16 +241,7 @@ class FgtPHP
 
 
         $server_output = curl_exec ($ch);
-/**
-        if (!curl_errno($ch)) {
-            switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
-                case 200:  # OK
-                    break;
-                default:
-                    echo 'Unerwarter HTTP-Code: ', $http_code, "\n";
-            }
-        }
-*/
+
         return  $server_output;
 
         curl_close ($ch);
