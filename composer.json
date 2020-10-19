@@ -1,0 +1,20 @@
+{
+  "name": "digitale-werte/php-fgt",
+  "description": "A Wrapper Library for FortiGate API",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Heiner Ohm",
+      "email": "heiner.ohm@digitale-werte.com"
+    }
+  ],
+  "require": {
+
+  },
+  "autoload": {
+    "psr-4": {
+      "DigitaleWerte\\FortiPHP\\": "src/DigitaleWerte/FortiPHP"
+    }
+  }
+}

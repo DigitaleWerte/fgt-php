@@ -1,0 +1,5 @@
+/src/spielen.php
+/.phpunit.result.cache
+/test/
+.gitignore
+.idea
